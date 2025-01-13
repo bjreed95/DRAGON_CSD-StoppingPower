@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensure the page scales correctly on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title shown in the browser tab -->
+    <title>Stopping Power Database</title>
+    <!-- Link to an optional CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Main heading of the webpage -->
+    <h1>Stopping Power Database</h1>
+
+    <!-- Form where users input values for filtering data -->
+    <form id="inputForm">
+        <!-- Input box for the mass number of the beam -->
+        <label for="A_beam">A_beam (Mass number of the beam):</label>
+        <input type="number" id="A_beam" required>
+
+        <!-- Input box for the atomic number of the beam -->
+        <label for="Z_beam">Z_beam (Atomic number of the beam):</label>
+        <input type="number" id="Z_beam" required>
+
+        <!-- Input box for the mass number of the target -->
+        <label for="A_target">A_target (Mass number of the target):</label>
+        <input type="number" id="A_target" required>
+
+        <!-- Input box for the atomic number of the target -->
+        <label for="Z_target">Z_target (Atomic number of the target):</label>
+        <input type="number" id="Z_target" required>
+
+        <!-- Button to trigger the JavaScript filtering function -->
+        <button type="button" onclick="filterData()">Search</button>
+    </form>
+
+    <!-- Section for displaying results -->
+    <h2>Results</h2>
+    <!-- Table where filtered results will be shown -->
+    <table border="1">
+        <thead>
+            <!-- Table headers for the results -->
+            <tr>
+                <th>E_beam (MeV)</th>
+                <th>dE/dx (MeV/cm)</th>
+                <th>Uncertainty</th>
+            </tr>
+        </thead>
+        <!-- The body will be filled dynamically using JavaScript -->
+        <tbody id="resultsTable"></tbody>
+    </table>
+
+    <!-- Linking the JavaScript file containing the filtering logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
+
