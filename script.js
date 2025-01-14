@@ -7,7 +7,7 @@ async function filterData() {
     const Z_target = document.getElementById('Z_target').value;
 
     // Fetch the CSV file containing the stopping power data
-    const response = await fetch('stopping_powers.csv');  // Assumes the CSV is in the same directory
+    const response = await fetch('StoppingPowers.csv');  // Assumes the CSV is in the same directory
     const data = await response.text();  // Convert the CSV file data to text
 
     // Split the CSV data by new lines and ignore the header
