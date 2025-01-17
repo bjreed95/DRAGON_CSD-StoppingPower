@@ -17,7 +17,12 @@ async function filterData() {
     const resultsTable = document.getElementById('resultsTable');
     resultsTable.innerHTML = '';  // Clears the table before displaying new results
 
+    //create empty arrays to store the energies and stopping powers
+    const E = [];
+    const StoppingPower = [];
+
     // Loop through each row of the CSV data
+    let i = 0
     rows.forEach(row => {
         // Split the current row into its columns based on commas
         const columns = row.split(',');
@@ -34,6 +39,10 @@ async function filterData() {
             `;
             // Add the new row to the results table in the HTML
             resultsTable.appendChild(newRow);
+
+            // Fill energy and stopping power arrays
+            E[i] = columns[4]
+            StoppingPower[i] = columns[5]
         }
     });
 }
