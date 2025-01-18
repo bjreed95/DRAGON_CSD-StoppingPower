@@ -52,7 +52,7 @@ async function filterData() {
     
     // Create plot of beam energy vs stopping power
     const StoppingPowerCtx  = document.getElementById('StoppingPowerChart').getContext('2d');
-    new CharacterData(StoppingPowerCtx, {
+    new Chart(StoppingPowerCtx, {
         type: 'scatter',
         data: {
             datasets: [{
