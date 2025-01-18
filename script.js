@@ -43,7 +43,43 @@ async function filterData() {
             // Fill energy and stopping power arrays
             E[i] = columns[4]
             StoppingPower[i] = columns[5]
+            i = i + 1;
         }
     });
+
+    // Combine E and Stopping Power into scatter data
+    const StoppingPowerData = E.map((e, i) => ({x: e, y:StoppingPower[i]}));
+    
+    // Create plot of beam energy vs stopping power
+    const StoppingPowerCtx  = document.getElementById('StoppingPowerChart').getContext('2d');
+    new CharacterData(StoppingPowerCtx, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Stopping Power vs Energy',
+                data: StoppingPowerData,
+                backgroundColor: 'blue'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales:{
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Energy [MeV]'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    display: true,
+                    text: 'dE/dx [ev/10<sup>15</sup>/cm<sup>2</sup>]'
+                }
+            }
+        }
+    })
+
 }
 
